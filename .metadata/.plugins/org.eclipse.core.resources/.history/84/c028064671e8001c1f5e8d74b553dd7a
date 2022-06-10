@@ -1,0 +1,27 @@
+package br.com.radarsaude.desafio.entities;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import br.com.radarsaude.desafio.enums.GenderEnum;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class People implements Serializable {
+
+	@Id
+	private Long id;
+	private String name;
+	private GenderEnum gender;
+	private Date birthday;
+	private String phone;
+	private String email;
+}

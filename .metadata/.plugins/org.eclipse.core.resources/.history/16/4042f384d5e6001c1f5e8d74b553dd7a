@@ -1,0 +1,21 @@
+package br.com.radarsaude.desafio;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import br.com.radarsaude.desafio.repositories.PeopleRepository;
+
+@SpringBootApplication
+public class DesafioApplication {
+
+	@Autowired
+	private static PeopleRepository repository;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(DesafioApplication.class, args);
+		//populando dados iniciais.
+		reposito
+	}
+
+}

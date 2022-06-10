@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:14.2-alpine
+    container_name: postgres-container
+    environment:
+      POSTGRES_PASSWORD: 123456
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+    restart: always
+    ports:
+      - 5432:5432
+  api:
+    build: "./DesafioAPI"
+    container_name: desafio-api-container
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  web:
+    build: 
+      context: ./desafio-web
+    container_name: desafio-web-container
+    volumes:
+      - './:/app'
+      - '/app/node_modules'
+    ports:
+      - 3000:3000
+    image: app:react
+    command: npm start
+    depends_on:
+      - api

@@ -1,0 +1,30 @@
+package br.com.radarsaude.desafio;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import br.com.radarsaude.desafio.entities.People;
+import br.com.radarsaude.desafio.enums.GenderEnum;
+import br.com.radarsaude.desafio.repositories.PeopleRepository;
+
+@SpringBootApplication
+public class DesafioApplication {
+
+	@Autowired
+	private static PeopleRepository repository;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(DesafioApplication.class, args);
+		//populando dados iniciais.
+		Long millis=System.currentTimeMillis();  
+		List<People> peoples = new ArrayList<>();
+		People p1 = new People(1L, "Ana", GenderEnum.FEMALE, new Date(millis), "+5561988776655", "ana@gmail.com");
+		repository.saveAll(null);
+	}
+
+}

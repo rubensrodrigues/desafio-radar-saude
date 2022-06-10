@@ -1,0 +1,45 @@
+package br.com.radarsaude.desafio;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import br.com.radarsaude.desafio.entities.People;
+import br.com.radarsaude.desafio.enums.GenderEnum;
+import br.com.radarsaude.desafio.repositories.PeopleRepository;
+
+@SpringBootApplication
+public class DesafioApplication {
+
+	@Autowired
+	private static PeopleRepository repository;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(DesafioApplication.class, args);
+		//populando dados iniciais.
+		String strDate1="2005-03-31";
+		String strDate2="1999-04-31";
+		String strDate3="1987-01-11";
+		String strDate4="1995-07-21";
+		
+		List<People> peoples = new ArrayList<>();
+		People p1 = new People(1L, "Ana", GenderEnum.FEMALE, Date.valueOf(strDate1), "+5561988776655", "ana@gmail.com");
+		People p2 = new People(2L, "Beatriz", GenderEnum.FEMALE, Date.valueOf(strDate2), "+5561988776655", "ana@gmail.com");
+		People p3 = new People(3L, "Cristiane", GenderEnum.FEMALE, Date.valueOf(strDate3), "+5561988776655", "ana@gmail.com");
+		People p4 = new People(4L, "Debora", GenderEnum.FEMALE, Date.valueOf(strDate4), "+5561988776655", "ana@gmail.com");
+		People p5 = new People(5L, "Elias", GenderEnum.MALE, Date.valueOf(strDate2), "+5561988776655", "ana@gmail.com");
+		People p6 = new People(6L, "Fernando", GenderEnum.MALE, Date.valueOf(strDate3), "+5561988776655", "ana@gmail.com");
+		People p7 = new People(7L, "Gustavo", GenderEnum.MALE, Date.valueOf(strDate1), "+5561988776655", "ana@gmail.com");
+		People p8 = new People(8L, "Heitor", GenderEnum.MALE, Date.valueOf(strDate2), "+5561988776655", "ana@gmail.com");
+		People p9 = new People(9L, "Isaac", GenderEnum.MALE, Date.valueOf(strDate4), "+5561988776655", "ana@gmail.com");
+		People p10 = new People(10L, "Jackeline", GenderEnum.FEMALE, Date.valueOf(strDate3), "+5561988776655", "ana@gmail.com");
+		People p11 = new People(11L, "Kelly", GenderEnum.FEMALE, Date.valueOf(strDate1), "+5561988776655", "ana@gmail.com");
+		
+		repository.saveAll(null);
+	}
+
+}

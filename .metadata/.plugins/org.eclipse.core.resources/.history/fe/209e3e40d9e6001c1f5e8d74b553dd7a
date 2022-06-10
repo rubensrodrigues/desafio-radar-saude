@@ -1,0 +1,26 @@
+package br.com.radarsaude.desafio.services;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import br.com.radarsaude.desafio.entities.People;
+import br.com.radarsaude.desafio.repositories.PeopleRepository;
+
+@Service
+public class PeopleService {
+
+	private PeopleRepository repository;
+	
+	public ResponseEntity<?> findAll() {
+		
+		List<People> peoples = (List<People>) repository.findAll();
+		
+		return !peoples.isEmpty() ? 
+				new ResponseEntity<>(peoples, HttpStatus.OK) : 
+					new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
+}

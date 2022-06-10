@@ -1,0 +1,9 @@
+spring.jpa.database=POSTGRESSQL
+spring.datasource.platform=postgres
+spring.datasource.username=postgres
+spring.datasource.password=1234
+
+spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.propoerties.hibernate.jdbc.lob.non_contextual_creation=true

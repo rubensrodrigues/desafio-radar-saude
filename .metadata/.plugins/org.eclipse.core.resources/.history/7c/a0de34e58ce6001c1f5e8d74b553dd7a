@@ -1,0 +1,7 @@
+FROM openJDK
+
+WORKDIR /app
+
+COPY target/DesafioAPI-0.0.1-SNAPSHOT.jar /app/DesafioAPI.jar
+
+ENTRYPOINT ["java", "-jar', "DesafioAPI.jar"]
